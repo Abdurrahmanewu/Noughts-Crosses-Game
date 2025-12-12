@@ -34,9 +34,10 @@ const calculateWinner = (squares) => {
 };
 
 function App() {
-  const [suqares, setSuqares] = useState(Array(9).fill(null));
+  const [squares, setSquares] = useState(Array(9).fill(null));
+  console.log(squares);
   const [xisNext, setXisNext] = useState(true);
-  const winner = calculateWinner(suqares);
+  const winner = calculateWinner(squares);
   let status;
   if (winner) {
     status = `"Winner":${winner}`;
@@ -44,7 +45,7 @@ function App() {
     status = `"Next-player":${xisNext ? "X" : "O"}`;
   }
   const handleClick = (i) => {
-    const newSquares = suqares.slice();
+    const newSquares = squares.slice();
     if (newSquares[i] || winner) {
       return;
     }
@@ -53,10 +54,11 @@ function App() {
     } else {
       newSquares[i] = "O";
     }
-    setSuqares(newSquares);
+    setSquares(newSquares);
     setXisNext(!xisNext);
-    console.log(suqares);
+    console.log(squares);
   };
+
   return (
     <>
       <h1 className="text-amber-900 text-5xl font-extrabold text-center m-5">
@@ -66,19 +68,19 @@ function App() {
         {status}
       </h1>
       <div className="flex">
-        <Suqare value={suqares[0]} onSquareClick={() => handleClick(0)} />
-        <Suqare value={suqares[1]} onSquareClick={() => handleClick(1)} />
-        <Suqare value={suqares[2]} onSquareClick={() => handleClick(2)} />
+        <Suqare value={squares[0]} onSquareClick={() => handleClick(0)} />
+        <Suqare value={squares[1]} onSquareClick={() => handleClick(1)} />
+        <Suqare value={squares[2]} onSquareClick={() => handleClick(2)} />
       </div>
       <div className="flex">
-        <Suqare value={suqares[3]} onSquareClick={() => handleClick(3)} />
-        <Suqare value={suqares[4]} onSquareClick={() => handleClick(4)} />
-        <Suqare value={suqares[5]} onSquareClick={() => handleClick(5)} />
+        <Suqare value={squares[3]} onSquareClick={() => handleClick(3)} />
+        <Suqare value={squares[4]} onSquareClick={() => handleClick(4)} />
+        <Suqare value={squares[5]} onSquareClick={() => handleClick(5)} />
       </div>
       <div className="flex">
-        <Suqare value={suqares[6]} onSquareClick={() => handleClick(6)} />
-        <Suqare value={suqares[7]} onSquareClick={() => handleClick(7)} />
-        <Suqare value={suqares[8]} onSquareClick={() => handleClick(8)} />
+        <Suqare value={squares[6]} onSquareClick={() => handleClick(6)} />
+        <Suqare value={squares[7]} onSquareClick={() => handleClick(7)} />
+        <Suqare value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
     </>
   );
