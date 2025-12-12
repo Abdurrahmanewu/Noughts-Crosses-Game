@@ -24,6 +24,10 @@ const calculateWinner = (squares) => {
     [0, 4, 8],
     [2, 4, 6],
   ];
+
+  //const arr = [ [0,1,2], [3,4,5] ]
+  //arr[0:2]
+
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
@@ -35,6 +39,8 @@ const calculateWinner = (squares) => {
 
 function App() {
   const [squares, setSquares] = useState(Array(9).fill(null));
+  // [x, x, x, null, null, null, null, null, null]
+  // [X, o, x, o, x, null, null, null, null]
   console.log(squares);
   const [xisNext, setXisNext] = useState(true);
   const winner = calculateWinner(squares);
@@ -87,3 +93,9 @@ function App() {
 }
 
 export default App;
+
+// SQL-datcamp or bro-code
+// Engine X-freecodecamp-for starting-using my old laptop(using it as server through ubontu)
+// for networking- Tellnet(from youtube)
+// Git-(Ador course dibe amk)
+
